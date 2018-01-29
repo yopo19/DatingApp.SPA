@@ -34,7 +34,7 @@
             Bienvenido {{ authService.decodedToken?.unique_name | titlecase }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" *dropdownMenu>
-            <li><a href="#">Editar Perfil</a></li>
+            <li><a [routerLink]="['/member/edit']" >Editar Perfil</a></li>
             <li role="separator" class="divider"></li>
             <li><a (click)="logout()"><i class="fa-sign-out fa"></i> Cerrar sesión</a></li>
           </ul>

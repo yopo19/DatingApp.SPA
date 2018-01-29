@@ -25,6 +25,10 @@ export class UserService {
                    .map(response => <User>response.json())
                    .catch(this.handleError);
     }
+    updateUser(id: number, user: User) {
+        return this.authHttp.put(this.baseUrl + 'users/' + id, user)
+        .catch(this.handleError);
+    }
     // De momento -- Luego se cambiará
     /*
     private jwt() {
