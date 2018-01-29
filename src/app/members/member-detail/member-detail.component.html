@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <h1>Perfil de {{ user?.knownAs}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <img src="{{user?.photoUrl}}" class="profile-image thumbnail" alt="user?.konwnAs">
+        <div class="panel-body">
+          <div>
+            <strong>Ubicación: </strong>
+            <p>{{ user.city }}, {{user.country}}</p>
+          </div>
+          <div>
+            <strong>Edad: </strong>
+            <p>{{ user.age }}</p>
+          </div>
+          <div>
+            <strong>Último acceso: </strong>
+            <p>{{ user.lastActive }}</p>
+          </div>
+          <div>
+            <strong>Miembro desde: </strong>
+            <p>{{ user.created }}</p>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="btn-group-justified">
+            <div class="btn-group">
+              <button class="btn btn-primary">Me gusta</button>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-success">Mensajes</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Acerca de {{user?.knownAs}}">
+            <h4>Descripción</h4>
+            <p>{{ user.introduction}}</p>
+            <h4>Buscando</h4>
+            <p>{{ user.lookingFor}}</p>
+          </tab>
+          <tab heading="Intereses" class="custom">
+            <h4>Descripción</h4>
+            <p>{{ user.interests}}</p>
+
+          </tab>
+          <tab heading="Fotos">
+              <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
+          </tab>
+          <tab heading="Mensajes">
+            <h4>Mensajes</h4>
+
+          </tab>
+        </tabset>
+      </div>
+
+
+    </div>
+  </div>
+</div>
