@@ -33,14 +33,18 @@ export class AuthService {
                 this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
                 this.userToken = user.tokenString;
                 this.currentUser = user.user;
+                if (this.currentUser.photoUrl == null) {
+                    this.currentUser.photoUrl = '../../assets/user.png';
+                }
                 this.changeMemberPhoto(this.currentUser.photoUrl);
             }
         }).catch(this.handleError);
     }
 
-    register(model: any) {
-        console.log(model);
-        return this.http.post(this.baseUrl + 'register', model, this.requestOptions()).catch(this.handleError);
+    register(model: User) {
+        return this.http
+        .post(this.baseUrl + 'register', model, this.requestOptions())
+        .catch(this.handleError);
     }
     
     loggedIn() {
